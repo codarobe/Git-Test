@@ -10,10 +10,16 @@ namespace GitTest
     {
         static void Main(string[] args)
         {
-            Random generator = new Random();
-            int randInt = (generator.Next() % 100) + 1;
+            Console.Out.WriteLine("Enter a lower bound.");
+            int lower = System.Int32.Parse(Console.ReadLine());
 
-            Console.Out.WriteLine("I'm thinking of a number between 1 and 100");
+            Console.Out.WriteLine("Enter an upper bound.");
+            int upper = System.Int32.Parse(Console.ReadLine());
+
+            Random generator = new Random();
+            int randInt = (generator.Next() % (upper-lower + 1)) + lower;
+
+            Console.Out.WriteLine("I'm thinking of a number between {0} and {1}", lower, upper);
             Console.Out.WriteLine("Please enter your guess below.");
             
             // Retrieve initial user input
